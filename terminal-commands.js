@@ -11,16 +11,12 @@ module.exports.ls = () => {
 };
 
 module.exports.touch = (fileName => {
-  var createStream = fs.createWriteStream(`${fileName}.js`);
+  var createStream = fs.createWriteStream(fileName);
   createStream.end();
-};
-
-module.exports.mkdir = (dirName => {
-  fs.mkdir('./', { recursive: true }, (err) => {
-  if (err) throw err;
 });
 
-
-
-var createStream = fs.createWriteStream("hello-world.txt");
-createStream.end();
+module.exports.mkdir = (dirPath => {
+  fs.mkdir(dirPath, { recursive: true }, (err) => {
+  if (err) throw err;
+});
+});
